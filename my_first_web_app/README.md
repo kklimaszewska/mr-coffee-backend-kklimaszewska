@@ -16,9 +16,9 @@ This project is a simple backend API for schedule website.
 For development, you will need:
 * Node.js and a node global package
 * Frameworks/Librarys:
-    *"express" version: "^4.17.3",
-    *"joi" version: "^17.6.0",
-    *"js-sha256" version: "^0.9.0"
+    - "express" version: "^4.17.3",
+    - "joi" version: "^17.6.0",
+    - "js-sha256" version: "^0.9.0"
 
 	
 ## Instalation
