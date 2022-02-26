@@ -22,7 +22,7 @@ app.get("/schedules", (req, res) => {
 });
 
 app.get('/users/:id',
-    (req, res, next) => {
+    (req, res) => {
         const idNumber = Number(req.params.id);
 
         logic.userExist(idNumber, dataUsers.users.length, res);
@@ -32,7 +32,7 @@ app.get('/users/:id',
 )
 
 app.get('/users/:id/schedules',
-    (req, res, next) => {
+    (req, res) => {
         const idNumber = Number(req.params.id);
         const userSchedule = [];
 
@@ -70,3 +70,4 @@ app.post('/schedules', (req, res) => {
 app.listen(3000, () => {
   console.log(`http://localhost:3000/ is waiting for requests.`);
 });
+
