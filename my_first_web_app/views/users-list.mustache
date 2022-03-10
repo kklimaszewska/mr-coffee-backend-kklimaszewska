@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule</title>
+    <link rel="stylesheet" href="/static/layout.css" />
+</head>
+<body>
+    <footer>
+        <img class="footer-img" src="/static/full_logo_white.png" alt="logo"/>
+        <h1 class="footer-title">Schedule website</h1>
+        <div>
+            <a class="footer-link" href="/users">Users</a>
+            <a class="footer-link" href="/schedules">Schedules</a>
+        </div>
+    </footer>
+    <div class="title">   
+        <h2>All users</h2>   
+   
+        <div class="columns"> 
+            {{#user}}
+                <div class="column">
+                    <h3><a class="column-link" href="/users/{{&idNumber}}">User {{idNumber}}</a></h3>
+                    <p><span>firstname:</span> {{firstname}},</p>
+                    <p><span>lastname:</span> {{lastname}},</p>
+                    <p><span>email:</span> {{email}}.</p>
+                </div>
+            {{/user}}
+        </div> 
+    </div>
+    
+    <div class="container">
+        <button onclick="window.location.href='users/new-user'">Add new user</button>
+    </div>  
+</body>
+</html>
+
+<!-- <a href=“/users?imie={{imie}}&city=={{city}}”>Idź do usera</a> -->

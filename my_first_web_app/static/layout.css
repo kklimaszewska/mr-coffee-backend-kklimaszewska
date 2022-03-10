@@ -1,0 +1,113 @@
+ body {
+            background: #f5f7fa;
+            font-family: Verdana;
+            margin: 0;
+            padding: 0;
+        }
+footer {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #708090;
+        }
+
+.footer-title {
+            color: #fff;
+        }
+
+.footer-img {
+            height: 50px;
+            padding: 10px;
+        }
+
+.footer-link {
+            color: #fff;
+            font-size: 20px;
+            font-style: bold;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+.footer-link:hover {
+  color: #ff6b08;
+}
+
+.title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 100px;
+        }
+
+.container {
+            position: relative;
+            display: flex;
+            justify-content: space-evenly;
+            margin: 100px;
+            padding: 20px;
+        }
+
+.error-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 100px;
+            padding: 20px;
+}
+
+button {
+            margin: 20px;
+            display: block;
+            width: 20%;
+            height: 40px;
+            background: #708090;
+            color:#fff;
+            font-size: 20px;
+        }
+
+span {
+            font-weight: bold;
+        }
+        
+.columns {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+        }
+
+.column {
+            border-style: dashed;
+            margin: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+        }
+
+.column-link {
+    color: #000;
+    text-decoration: none;
+}
+
+.column-link:hover {
+    color: #ff6b08;
+}
+
+form {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+label,
+input,
+select {
+            margin: 10px;
+            font-size: 20px;
+        }

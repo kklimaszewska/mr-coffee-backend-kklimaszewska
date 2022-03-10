@@ -3,14 +3,15 @@
 This project is a simple backend API for schedule website.
 
 
-### Table of contents
+#### Table of contents
 
-* [General info](#general-info)
 * [Requirements](#requirements)
 * [Instalation](#instalation)
 * [Running the project](#running)
 
 	
+
+
 ## Requirements
 
 For development, you will need:

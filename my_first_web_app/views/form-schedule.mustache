@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule</title>
+    <link rel="stylesheet" href="/static/layout.css" />
+</head>
+<body>
+    <footer>
+        <img class="footer-img" src="/static/full_logo_white.png" alt="logo" >
+        <h1 class="footer-title">Schedule website</h1>
+        <div>
+            <a class="footer-link" href="/users">Users</a>
+            <a class="footer-link" href="/schedules">Schedules</a>
+        </div>
+    </footer>
+    <div class="title">   
+        <h2>New schedule</h2>
+    </div>  
+    <div class="container">
+            <form method="POST" enctype="application/x-www-form-urlencoded">
+                <select name="user_id" required>
+                {{#usersList}}
+                    <option value={{idNumber}}>{{firstname}} {{lastname}}</option>
+                {{/usersList}}
+                </select>
+                <label>day</label>
+                <select name="day" required>
+                    <option value=1>monday</option>
+                    <option value=2>tuesday</option>
+                    <option value=3>wendsday</option>
+                    <option value=4>thursday</option>
+                    <option value=5>friday</option>
+                    <option value=6>saturday</option>
+                    <option value=7>sunday</option>
+                </select>
+                <label>start at (working hours 9-17)</label>
+                <input type="number" min='9' max='17' step='1' name="start_at" id="start" required>
+                <label>end at (working hours 9-17)</label>
+                <input type="number" min='9' max='17'  step='1' name="end_at"  id="end" required>
+                <button type="submit">Submit</button>
+            </form>
+            <script>
+                function setMin() {
+                    const start = document.getElementById("start");
+                    const end = document.getElementById("end");
+                    end.min = parseInt(start.value) + 1;
+                }
+
+                const trigger = document.getElementById("start");
+                trigger.addEventListener("change", setMin, false);
+            </script>
+    </div>  
+</body>
+</html>
+
+<!-- <a href=“/users?imie={{imie}}&city=={{city}}”>Idź do usera</a> -->

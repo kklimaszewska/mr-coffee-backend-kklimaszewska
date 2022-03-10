@@ -2,13 +2,39 @@ const Joi = require('joi');
 
 function userExist (id, length, res) {
     if (!(id<length)) {
-        res.status(404).json({"error": `There is no user with this id number: ${id}.`})
-        return;
+        res.status(404).render('error', {"Request": `users/${id}...`, "idNumber": `${id}`})
+        return false;
+    }
+    return true;
+}
+
+function timeFormat(str) {
+    const num = parseInt(str);
+    if (num > 12) {
+        return (num-12) + 'PM';
+    }
+return num + 'AM'
+}
+
+function displayDay(number) {
+    if (number === 1) {
+        return "monday";
+    } else if (number === 2) {
+        return "tuesday";
+    } else if (number === 3) {
+        return "wendsday";
+    } else if (number === 4) {
+        return "thursday";
+    } else if (number === 5) {
+        return "friday";
+    } else if (number === 6) {
+        return "saturday";
+    } else {
+        return "sunday";
     }
 }
 
-
-//input validation with joi
+//input validation with joi (not use in 3B project)
 function validateInput (input, schema) {
     
     const result = schema.validate(input);
@@ -18,7 +44,7 @@ function validateInput (input, schema) {
     }
     return result.value;
 }
-//schema for users
+//schema for users (not use in 3B project)
 const schemaUsers = Joi.object().keys({
     firstname: Joi.string()
         .alphanum()
@@ -40,7 +66,7 @@ const schemaUsers = Joi.object().keys({
         .min(8)
         .required(),
 })
-//schema for schedules
+//schema for schedules (not use in 3B project)
 const schemaSchedules = Joi.object().keys({
     user_id: Joi.number()
         .integer()
@@ -63,15 +89,18 @@ const schemaSchedules = Joi.object().keys({
         .required(),
 })
 
-//send an error message with status
+//send an error message with status (not use in 3B project)
 function inputErrorMessage (err, res) {;
     if (err) {
         res.status(422).json({ error: err.details.map(i => i.message).join(',') }) 
     }
 }
 
-module.exports = {  userExist: userExist,
-                    validateInput: validateInput,
-                    inputErrorMessage: inputErrorMessage,
-                    schemaUsers: schemaUsers,
-                    schemaSchedules:schemaSchedules};
+module.exports = {
+    userExist: userExist,
+    timeFormat: timeFormat,
+    displayDay: displayDay,
+    validateInput: validateInput,
+    inputErrorMessage: inputErrorMessage,
+    schemaUsers: schemaUsers,
+    schemaSchedules:schemaSchedules};

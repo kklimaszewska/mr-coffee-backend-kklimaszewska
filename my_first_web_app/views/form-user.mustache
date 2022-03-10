@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule</title>
+    <link rel="stylesheet" href="/static/layout.css" />
+</head>
+<body>
+    <footer>
+        <img class="footer-img" src="/static/full_logo_white.png" alt="logo"/>
+        <h1 class="footer-title">Schedule website</h1>
+        <div>
+            <a class="footer-link" href="/users">Users</a>
+            <a class="footer-link" href="/schedules">Schedules</a>
+        </div>
+    </footer>
+    <div class="title">   
+        <h2>New user</h2>
+    </div>  
+    <div class="container">
+            <form method="POST" enctype="application/x-www-form-urlencoded">
+                <label>firstname (2 or more letters)</label>
+                <input type="text" name="firstname" required pattern="[A-Za-z]{2,}">
+                <label>lastname (3 or more letters)</label>
+                <input type="text" name="lastname" required pattern="[A-Za-z]{3,}">
+                <label>email (example: user@mrcoffee.com)</label>
+                <input type="email" name="email" required>
+                <label>password (8 or more characters)</label>
+                <input type="password" name="password" required pattern=".{8,}">
+                <button type="submit">Submit</button>
+            </form>
+    </div>  
+</body>
+</html>
+
+<!-- <a href=“/users?imie={{imie}}&city=={{city}}”>Idź do usera</a> -->

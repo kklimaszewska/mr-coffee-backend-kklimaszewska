@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule</title>
+    <link rel="stylesheet" href="/static/layout.css" />
+</head>
+<body>
+    <footer>
+        <img class="footer-img" src="/static/full_logo_white.png" alt="logo"/>
+        <h1 class="footer-title">Schedule website</h1>
+        <div>
+            <a class="footer-link" href="/users">Users</a>
+            <a class="footer-link" href="/schedules">Schedules</a>
+        </div>
+    </footer>
+    <div class="title">   
+        <h2>Schedules for user {{idNumber}}</h2>   
+        <div class="columns"> 
+        {{#schedules}}
+            <div class="column">
+                <p><span>day:</span> {{day}},</p>
+                <p><span>start at:</span> {{start_at}},</p>
+                <p><span>end at:</span> {{end_at}}.</p>
+            </div>
+        {{/schedules}}
+        {{^schedules}}
+            <div class="column">
+                <p> There is no meeting schedule for that user </p>
+            </div>
+        {{/schedules}}
+        </div> 
+    </div>
+    <div class="container">
+        <button onclick="window.location.href='/schedules/new-schedule'">Add new schedule</button>
+    </div>  
+</body>
+</html>
+
+<!-- <a href=“/users?imie={{imie}}&city=={{city}}”>Idź do usera</a> -->
