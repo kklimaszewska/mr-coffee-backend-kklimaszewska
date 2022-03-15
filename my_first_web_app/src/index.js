@@ -5,6 +5,15 @@ const sha256 = require('js-sha256');
 const bodyParser = require('body-parser')
 const logic = require('./logic');
 const dataUsers = require("./data");
+const { Pool } = require("pg");
+
+const pool = new Pool({
+  user: "postgres",
+  host: "localhost",
+  database: "incode",
+  // password: "************", PGPASSWORD
+  port: 5432,
+});
 
 app.set('views', `${__dirname}/../views`);
 app.set('view engine', 'mustache');
@@ -27,10 +36,12 @@ app.get("/users", (req, res) => {
   res.render('users-list', {"user": usersNumber});
 });
 
-app.get("/schedules", (req, res) => {
-    const schedules = [...dataUsers.schedules];
+app.get("/schedules", async (req, res) => {
+    const schedules = (await pool.query("SELECT * FROM schedules;")).rows;
     for (let i = 0; i < schedules.length; i++) {
         schedules[i].day = logic.displayDay(schedules[i].day);
+        schedules[i].start_at = logic.timeFormat(schedules[i].start_at);
+        schedules[i].end_at = logic.timeFormat(schedules[i].end_at);
     }
     res.render('schedules-list', {"schedule": schedules});
 });
@@ -55,22 +66,26 @@ app.get('/users/:id',
 )
 
 app.get('/users/:id/schedules',
-    (req, res) => {
+    async (req, res) => {
 
         const idNumber = req.params.id;
+
+        const schedules = (await pool.query("SELECT * FROM schedules;")).rows;
 
         const userSchedule = [];
 
         const userExist = logic.userExist(parseInt(idNumber), dataUsers.users.length, res);
 
         if (userExist) {
-            for (let i=0; i<dataUsers.schedules.length; i++) {
-                if (dataUsers.schedules[i].user_id === parseInt(idNumber)) {
-                    userSchedule.push(dataUsers.schedules[i])
+            for (let i=0; i<schedules.length; i++) {
+                if (schedules[i].user_id === parseInt(idNumber)) {
+                    userSchedule.push(schedules[i])
                 }
             }
             for (let i = 0; i < userSchedule.length; i++) {
-              userSchedule[i].day = logic.displayDay(userSchedule[i].day);
+                userSchedule[i].day = logic.displayDay(userSchedule[i].day);
+                userSchedule[i].start_at = logic.timeFormat(userSchedule[i].start_at);
+                userSchedule[i].end_at = logic.timeFormat(userSchedule[i].end_at);
             }
             res.render('schedules-for-user', {  "idNumber": idNumber, "schedules": userSchedule})
         } 
@@ -97,13 +112,12 @@ app.route("/schedules/new-schedule")
         res.render('form-schedule', {"usersList": userList});
     })
 
-    .post((req, res) => {
-        const newSchedule = req.body;
-        newSchedule.user_id = parseInt(newSchedule.user_id);
-        newSchedule.day = parseInt(newSchedule.day);
-        newSchedule.start_at = logic.timeFormat(newSchedule.start_at);
-        newSchedule.end_at = logic.timeFormat(newSchedule.end_at);
-        dataUsers.schedules.push(newSchedule);
+    .post( async (req, res) => {
+        const {user_id, day, start_at, end_at} = req.body;
+
+        await pool.query(`INSERT INTO
+                         schedules (user_id, day, start_at, end_at) VALUES
+                        ('${user_id}', '${day}', '${start_at}', '${end_at}');`);
 
         res.redirect("/schedules");
     });
