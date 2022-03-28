@@ -9,8 +9,6 @@ This project is a simple schedule website.
 * [Instalation](#instalation)
 * [Running the project](#running)
 
-	
-
 
 ## Requirements
 
@@ -25,15 +23,16 @@ For development, you will need:
 	
 ## Instalation
 ```
-    $ `git clone git@github.com:pl-incode/mr-coffee-backend-kklimaszewska.git`
-    $ `cd my_first_web_app`
-    $ `npm install`
+    $ git clone git@github.com:pl-incode/mr-coffee-backend-kklimaszewska.git
+    $ cd my_first_web_app
+    $ npm install
 ```
+
 
 ## Running
 ```
-    $ `cd ./my_first_web_app`
-    $ `npm start PGPASSWORD='*************'`
+    $ cd ./my_first_web_app
+    $ npm start PGPASSWORD='*************'
     or
-    $ `npm run start PGPASSWORD='*************'`
+    $ npm run start PGPASSWORD='*************'
 ```

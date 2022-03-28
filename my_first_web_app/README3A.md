@@ -10,8 +10,6 @@ This project is a simple backend API for schedule website.
 * [Running the project](#running)
 
 	
-
-
 ## Requirements
 
 For development, you will need:
@@ -24,15 +22,16 @@ For development, you will need:
 	
 ## Instalation
 ```
-    $ `git clone git@github.com:pl-incode/mr-coffee-backend-kklimaszewska.git`
-    $ `cd my_first_web_app`
-    $ `npm install`
+    $ git clone git@github.com:pl-incode/mr-coffee-backend-kklimaszewska.git
+    $ cd my_first_web_app
+    $ npm install
 ```
+
 
 ## Running
 ```
-    $ `cd ./my_first_web_app`
-    $ `npm start`
+    $ cd ./my_first_web_app
+    $ npm start
     or
-    $ `npm run start`
+    $ npm run start
 ```
