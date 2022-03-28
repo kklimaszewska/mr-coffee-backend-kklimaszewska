@@ -15,25 +15,25 @@ This project is a simple schedule website.
 ## Requirements
 
 For development, you will need:
-* Node.js and a node global package
+* Node.js
 * Frameworks/Libraries:
-    - "express" version: "^4.17.3",
-    - "js-sha256" version: "^0.9.0",
-    - "mustache-express" version: "^1.3.2"
-    - "pg" version: "^8.7.3"
+    - express,
+    - js-sha256,
+    - mustache-express
+    - pg
 
 	
 ## Instalation
 ```
-    $ git clone git@github.com:pl-incode/mr-coffee-backend-kklimaszewska.git
-    $ cd my_first_web_app
-    $ npm install all needed packages, frameworks and libraries
+    $ `git clone git@github.com:pl-incode/mr-coffee-backend-kklimaszewska.git`
+    $ `cd my_first_web_app`
+    $ `npm install`
 ```
 
 ## Running
 ```
-    $ cd ./my_first_web_app
-    $ npm start PGPASSWORD='*************'
+    $ `cd ./my_first_web_app`
+    $ `npm start PGPASSWORD='*************'`
     or
-    $ npm run start PGPASSWORD='*************'
+    $ `npm run start PGPASSWORD='*************'`
 ```

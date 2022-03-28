@@ -1,11 +1,12 @@
 const express = require("express");
 const mustacheExpress = require('mustache-express');
-const app = express();
 const sha256 = require('js-sha256');
 const bodyParser = require('body-parser')
 const logic = require('./logic');
 const dataUsers = require("./data");
 const { Pool } = require("pg");
+
+const app = express();
 
 const pool = new Pool({
   user: "postgres",
@@ -126,4 +127,3 @@ app.route("/schedules/new-schedule")
 app.listen(3000, () => {
   console.log(`http://localhost:3000/ is waiting for requests.`);
 });
-

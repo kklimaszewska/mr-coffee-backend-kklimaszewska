@@ -15,27 +15,24 @@ This project is a simple backend API for schedule website.
 ## Requirements
 
 For development, you will need:
-* Node.js and a node global package
+* Node.js
 * Frameworks/Librarys:
-    - "express" version: "^4.17.3",
-    - "joi" version: "^17.6.0",
-    - "js-sha256" version: "^0.9.0"
+    - express,
+    - joi,
+    - js-sha256
 
 	
 ## Instalation
 ```
-    $ git clone git@github.com:pl-incode/mr-coffee-backend-kklimaszewska.git
-    $ cd my_first_web_app
-    $ npm install express --save
-    $ npm install joi --save
-    $ npm install js-sha256 --save
-    $ npm install nodemon --save-dev
+    $ `git clone git@github.com:pl-incode/mr-coffee-backend-kklimaszewska.git`
+    $ `cd my_first_web_app`
+    $ `npm install`
 ```
 
 ## Running
 ```
-    $ cd ./my_first_web_app
-    $ npm start 
+    $ `cd ./my_first_web_app`
+    $ `npm start`
     or
-    $ npm run start
+    $ `npm run start`
 ```
