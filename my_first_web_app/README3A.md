@@ -26,10 +26,7 @@ For development, you will need:
 ```
     $ git clone git@github.com:pl-incode/mr-coffee-backend-kklimaszewska.git
     $ cd my_first_web_app
-    $ npm install express --save
-    $ npm install joi --save
-    $ npm install js-sha256 --save
-    $ npm install nodemon --save-dev
+    $ npm install
 ```
 
 ## Running
